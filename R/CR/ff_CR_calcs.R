@@ -16,6 +16,58 @@
 # and compute surface descriptors, with the option to generate a summary 
 # report and visualizations in a PDF.
 
+
+#' Perform Image Analysis and Index Calculation
+#'
+#' calcs function processes a given image dataset, extracts relevant 
+#' color and spectral information, applies thresholding techniques, and 
+#' computes various index values for analysis.
+#'
+#' @param photo Integer. The index of the current photo being processed.
+#' @param area Integer. The index of the area associated with the current photo.
+#' @param obs.areas list of SpatialPolygons. 
+#' Spatial polygons that set the areas where the samples are located in the 
+#' pictures.   
+#' @param vis.files Character vector. File paths for visible spectrum images.
+#' @param nir.files Character vector. File paths for near-infrared images.
+#' @param pic.format Character. Image format, either "tif" or "jpg".
+#' @param manual.mask.test Logical. Whether manual masking is used. If TRUE, 
+#' provide mask.files argument
+#' @param mask.files Character vector. File paths for manually created masks.
+#' @param summary.file Character. Path to the CSV file where summary results are stored.
+#' @param chart  SpatialPolygons. Provided by chart.2 function that set position of color 
+#' chart tiles in the pictures. With as many features as color tiles use for calibration. 
+#' @param total.samples Integer. Total number of samples to be processed.
+#' @param index. Character vector. Names of the indices to be computed.
+#' @param descriptors. Character vector. Statistical descriptors to compute.
+#' @param calculate.thresh Logical. Whether threshold values should be computed.
+#' @param threshold.vector Numeric vector. Predefined threshold values.
+#' @param descrip Logical. Whether to calculate additional statistical descriptors.
+#' @param threshold.method Character. The method used for threshold calculation.
+#' @param pdf Logical. Whether to generate a PDF with visualized results.
+#' @param start.time POSIXct. The start time of processing for logging execution time.
+#' @param chart.vals Data frame. Calibration values for color correction.
+#'
+#' @return A list containing:
+#' \item{data.frames}{A list of data frames with index values and classification results.}
+#' \item{rasters}{(If pdf = TRUE) A list of raster objects representing processed images.}
+#' 
+#' @details
+#' The function executes the following steps:
+#' - Reads input images and checks validity.
+#' - Extracts color data and applies calibration.
+#' - Computes selected indices and threshold values.
+#' - Compares thresholding results with manual masks (if applicable).
+#' - Saves results to the summary file.
+#' - Optionally generates a PDF with visual results.
+#'
+#' @note This function is designed for internal use within an image processing pipeline.
+#'
+#' @seealso \code{\link{raster.tiff.ccspectral}}, \code{\link{index.calc.fun}},
+#' \code{\link{calculate.raster.thresh.fun}}, \code{\link{plotpdf}}
+#'
+#' @export
+
 calcs <- function(photo,
                   area, 
                   obs.areas, 
