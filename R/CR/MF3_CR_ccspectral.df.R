@@ -1,32 +1,7 @@
-# TITLE: 
-
-# OBJECTIVE: Two main objectives
-# 1. Image segmentation between moss and background using 
-# autothreshold, supervised autothreshold or manual criteria.
-# 2. The measurement of moss physiological activity 
-
-
-# To achieve this objectives the function calculates different 
-# index of reflectance: 
-# ndvi, sr, msavi, evi, ci, bsci, bi, 
-# nor_r, nor_g, nor_b, ex_r, ex_g,  ex_b,  ex_gr, cive,  veg
-# # library(sm)
-#  i <- 1
-#   obs.areas <- obs_areas
-# # # # # # authothreshold.method <- method[1]
-# photo <- 1
-# area <- 1
-# # # # pkg[!(pkg %in% installed.packages()[, "Package"])]
-# # # #
-# # # # if (!require("sm")) install.packages("sm")
-#   wd.path <- wd
-#   threshold.method <- "Mean"
-# index. <-"SAT"
-# R functions
 #' ccspectral.df: 
 #' 
 #' @description Image segmentation to calculate areas of Biological Soil Covers dominated
-#' by photosynthetic organisms.Calculates spectral indices, segments and 
+#' by photosynthetic organisms. Calculates spectral indices, segments and 
 #' classifies Biological Soil Covers (foreground) and soil (background) based on
 #' global histogram threshold values. 
 #' 
@@ -36,13 +11,13 @@
 #' Also, thresholding can be set manually.
 #' 
 #' To assess segmentation performance, logical _manual.mask.test_ requires the 
-#' user to provides a manually delimited outline moss contour, and then, create 
+#' user to provides a manually delimited outline contour, and then, create 
 #' a binary mask that separates background (0) from foreground (1) in ImageJ. 
 #' This binary mask is used as baseline (or ground true) image to compare with 
 #' the automatically calculated area. The function generates a confusion matrix 
 #' comparing pixel values of the baseline and the calculated values. This 
 #' confusion matrix could be used to calculate two classification 
-#' evaluation metrcs as True Skill Statistic (TSS) or Intersection over Union 
+#' evaluation metrics as True Skill Statistic (TSS) or Intersection over Union 
 #' (IoU). 
 #' 
 #' @param wd.path string. 
