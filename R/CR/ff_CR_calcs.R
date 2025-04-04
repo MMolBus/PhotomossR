@@ -13,8 +13,7 @@
       # photo <- 1
       # chart.vals <- chart.vals
 # Function to process image data, calculate indices, apply thresholds, 
-# and compute surface descriptors, with the option to generate a summary 
-# report and visualizations in a PDF.
+# and compute surface descriptors.
 
 
 #' Perform Image Analysis and Index Calculation
@@ -44,13 +43,11 @@
 #' @param threshold.vector Numeric vector. Predefined threshold values.
 #' @param descrip Logical. Whether to calculate additional statistical descriptors.
 #' @param threshold.method Character. The method used for threshold calculation.
-#' @param pdf Logical. Whether to generate a PDF with visualized results.
 #' @param start.time POSIXct. The start time of processing for logging execution time.
 #' @param chart.vals Data frame. Calibration values for color correction.
 #'
 #' @return A list containing:
 #' \item{data.frames}{A list of data frames with index values and classification results.}
-#' \item{rasters}{(If pdf = TRUE) A list of raster objects representing processed images.}
 #' 
 #' @details
 #' The function executes the following steps:
@@ -59,12 +56,11 @@
 #' - Computes selected indices and threshold values.
 #' - Compares thresholding results with manual masks (if applicable).
 #' - Saves results to the summary file.
-#' - Optionally generates a PDF with visual results.
 #'
 #' @note This function is designed for internal use within an image processing pipeline.
 #'
 #' @seealso \code{\link{raster.tiff.ccspectral}}, \code{\link{index.calc.fun}},
-#' \code{\link{calculate.raster.thresh.fun}}, \code{\link{plotpdf}}
+#' \code{\link{calculate.raster.thresh.fun}}
 #'
 #' @export
 
@@ -85,7 +81,6 @@ calcs <- function(photo,
                   threshold.vector,
                   descrip,
                   threshold.method,
-                  pdf,
                   start.time,
                   chart.vals
                   ){
@@ -160,9 +155,8 @@ calcs <- function(photo,
                                     all.bands = all_bands,
                                     chart = chart,
                                     manual.mask.test = manual.mask.test,
-                                    chart.vals = chart.vals,
-                                    pdf = pdf)
-        if(pdf == T && manual.mask.test == T){
+                                    chart.vals = chart.vals)
+        if(manual.mask.test == T){
               moss_poly <- calibration_results[7]}
 # 3. Calculate index values, as raster and as dataframe ------------------------
    # Create a list with calibration results: 
@@ -295,14 +289,11 @@ calcs <- function(photo,
     names(list_df_results) <- names(list_raster_results)
     rm(colnames)
     }
-  if(pdf == FALSE){
+
                 rm(list_raster_results)
                 list.results <- list(list_df_results)
                 names(list.results) <- c("data.frames")
-  }else{
-    # List raster results an df results
-    list.results <- list(list_df_results, list_raster_results)
-    names(list.results) <- c("data.frames", "rasters")}
+
   ## 3.3. Descriptors calculation ----------------------------------------------
   # inrtroduce statistical descriptor values as a result if descrip ==T 
    if(descrip == F){
@@ -386,19 +377,7 @@ calcs <- function(photo,
   colnames(new_dat) <- colnames(dat)
   dat_bind <- rbind(dat, new_dat)
   write.csv(dat_bind, summary.file, row.names = F)
-  # 10. Create pdf to plot results ---------------------------------------------
-  if(pdf == T){
-    # plot pdf with results (operated by lists)
-    pdf_name <- paste0(out_dir, "/", sample_name, ".pdf")
-    # run plotpdf 
-    plotpdf(lhist = lhist,
-            lind = index.,
-            lman =  moss_manual_int_list,
-            lover = overlap_index_list,
-            i.names = index_names,
-            asp = asp,
-            pdf.name = paste0(sample_name, ".pdf"))
-    }
+
 # print timer check point  
        loop_time <- strsplit(as.character((as.numeric(Sys.time()) - as.numeric(start.time))/60), "\\.")[[1]]
        loop_time[2] <- round(60 * as.numeric(paste0("0.", as.character(loop_time[2]))))
