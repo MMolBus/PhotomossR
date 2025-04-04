@@ -31,9 +31,6 @@
 #' @param obs.areas list of SpatialPolygons. 
 #' Spatial polygons that set the areas where the samples are located in the 
 #' pictures.   
-#' @param pdf logical. 
-#' If a pdf with results is crated. 
-#' Default= F
 #' @param calculate.thresh logical. 
 #' Requires autothreshold calculation. See _threshold.method_ argument. 
 #' Default = F 
@@ -96,7 +93,6 @@
 #' pic.format = "tif", 
 #' chart = chart_polys, 
 #' obs.areas = obs_areas_poly_list, 
-#' pdf = F, 
 #' calculate.thresh = F,
 #' descrip = F, 
 #' manual.mask.test = F, 
@@ -112,7 +108,6 @@ ccspectral.df <- function(wd.path,
                           chart,
                           pic.format = "tif",
                           obs.areas,
-                          pdf = F,
                           calculate.thresh = F,
                           descrip = F,
                           manual.mask.test = F,
@@ -320,26 +315,25 @@ ccspectral.df <- function(wd.path,
       
       # Apply the calculations to each sample
       apply(all, 1, function(pair){
-            calcs(pair[1],
-                  pair[1],
+            calcs(photo = pair[1],
+                  area = pair[1],
                   obs.areas = obs.areas,
                   vis.files = all_named[,1],
                   nir.files = all_named[,1],
-                  chart = chart,
                   pic.format = pic.format,
-                  mask.files = mask_files,
                   manual.mask.test = manual.mask.test,
+                  mask.files = mask_files,
                   summary.file = summary_file,
+                  chart = chart,
                   total.samples = total_samples,
                   index. = index.,
                   descriptors. = descriptors.,
                   calculate.thresh = calculate.thresh,
+                  threshold.vector = threshold.vector,
                   descrip = descrip,
                   threshold.method = threshold.method,
-                  threshold.vector = threshold.vector,
-                  pdf = pdf,
                   start.time = start_time,
-                  chart.vals
+                  chart.vals = chart.vals
             )
       })
       
