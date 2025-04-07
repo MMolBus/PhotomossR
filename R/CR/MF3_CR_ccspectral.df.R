@@ -98,7 +98,7 @@
 #' manual.mask.test = F, 
 #' index. = c("SR"), 
 #' threshold.method = c("Li"), 
-#' threshold.vector = c(0.6),
+#' threshold.vector = NULL,
 #' descriptors. = c("mean") )
 #'
 #' @author Manuel Molina-Bustamante
