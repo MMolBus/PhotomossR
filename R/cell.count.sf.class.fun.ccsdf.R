@@ -14,9 +14,6 @@ FP <- length(surface_class[grep("01", surface_class)])
 FN <- length(surface_class[grep("10", surface_class)])
 TP <- length(surface_class[grep("11", surface_class)])
 
-ncell_sf_class <- c(TN,  
-                    FP, 
-                    FN, 
-                    TP)
+ncell_sf_class <- c(TN, FP, FN, TP)
 return(ncell_sf_class)
 }
