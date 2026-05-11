@@ -17,7 +17,7 @@ Depends: terra
 Imports: dplyr, terra, data.table, tiff, jpeg, sp, RColorBrewer, spatstat, RImageJROI
 BugReports: https://github.com/MMolBus/PhotomossR/issues
 LazyData: true
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
