@@ -2,7 +2,7 @@
 % Please edit documentation in R/chart2.R
 \name{chart2}
 \alias{chart2}
-\title{chart2:  Manual selection of points where color checker tiles are located in
+\title{chart2: Manual selection of points where color checker tiles are located in
 the image.}
 \usage{
 chart2(
@@ -19,7 +19,7 @@ chart2(
 \item{pic.path}{string. File path where you can find the image files.}
 
 \item{samp.width}{numeric. Distance to establish 
-the buffer arround click point. This argument feeds the argument with from 
+the buffer around click point. This argument feeds the argument with from 
 terra::buffer function operated internally by chart2. 
 Default value with = 40. 
 input click points, or of length equal to the number of click points.}
