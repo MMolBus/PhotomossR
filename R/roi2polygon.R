@@ -17,6 +17,8 @@
 #' roi2polygon.2 <- function(roi.folder = "./myrois", pic.folder = "./mypics")
 #'
 #' @author Manuel Molina-Bustamante
+#' 
+#' @importFrom dplyr %>%
 #'
 #' @export
 
