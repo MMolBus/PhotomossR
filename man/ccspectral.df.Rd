@@ -2,32 +2,22 @@
 % Please edit documentation in R/ccspectral.df.R
 \name{ccspectral.df}
 \alias{ccspectral.df}
-\title{ccspectral.df: Image segmentation to calculate areas of Biological Soil 
-Covers dominated by photosynthetic organims.}
+\title{ccspectral.df:}
 \usage{
 ccspectral.df(
   wd.path,
   chart,
   pic.format = "tif",
   obs.areas,
-  pdf = F,
   calculate.thresh = F,
   descrip = F,
   manual.mask.test = F,
-  index. = c("NDVI", "SR", "MSAVI", "EVI", "CI", "BSCI", "BI", "NORR", "NORG", "NORB",
-    "EXR", "EXG", "EXB", "EXGR", "CIVE", "VEG", "HUE", "SAT", "VAL"),
+  index. = index_list,
   threshold.method,
   threshold.vector,
   descriptors. = c("median", "mean", "sd", "min", "max", "diff.range"),
-  chart.vals = data.frame(red.chart = c(0.17, 0.63, 0.15, 0.11, 0.31, 0.2, 0.63, 0.12,
-    0.57, 0.21, 0.33, 0.67, 0.04, 0.1, 0.6, 0.79, 0.7, 0.07, 0.93, 0.59, 0.36, 0.18,
-    0.08, 0.03), green.chart = c(0.1, 0.32, 0.19, 0.14, 0.22, 0.47, 0.27, 0.11, 0.13,
-    0.06, 0.48, 0.4, 0.06, 0.27, 0.07, 0.62, 0.13, 0.22, 0.95, 0.62, 0.38, 0.2, 0.09,
-    0.03), blue.chart = c(0.07, 0.24, 0.34, 0.06, 0.42, 0.42, 0.06, 0.36, 0.12, 0.14,
-    0.1, 0.06, 0.24, 0.09, 0.04, 0.08, 0.31, 0.38, 0.93, 0.62, 0.39, 0.2, 0.09, 0.02),
-    nir.chart = c(0.43, 
-     0.87, 0.86, 0.18, 0.86, 0.43, 0.85, 0.54, 0.54, 0.79, 0.49,
-    0.66, 0.52, 0.44, 0.72, 0.82, 0.88, 0.42, 0.91, 0.51, 0.27, 0.13, 0.06, 0.02))
+  chart.vals = data.frame(red.chart = red_chart, green.chart = green_chart, blue.chart =
+    blue_chart, nir.chart = nir_chart)
 )
 }
 \arguments{
@@ -41,10 +31,6 @@ for .tif format. Default = "tif"}
 \item{obs.areas}{list of SpatialPolygons. 
 Spatial polygons that set the areas where the samples are located in the 
 pictures.}
-
-\item{pdf}{logical. 
-If a pdf with results is crated. 
-Default= F}
 
 \item{calculate.thresh}{logical. 
 Requires autothreshold calculation. See _threshold.method_ argument. 
@@ -113,7 +99,7 @@ A dataframe with the required results
 }
 \description{
 Image segmentation to calculate areas of Biological Soil Covers dominated
-by photosynthetic organisms.Calculates spectral indices, segments and 
+by photosynthetic organisms. Calculates spectral indices, segments and 
 classifies Biological Soil Covers (foreground) and soil (background) based on
 global histogram threshold values. 
 
@@ -123,13 +109,13 @@ an adaptation to R of \href{https://imagej.net/Auto_Threshold}{Auto Threshold pl
 Also, thresholding can be set manually.
 
 To assess segmentation performance, logical _manual.mask.test_ requires the 
-user to provides a manually delimited outline moss contour, and then, create 
+user to provides a manually delimited outline contour, and then, create 
 a binary mask that separates background (0) from foreground (1) in ImageJ. 
 This binary mask is used as baseline (or ground true) image to compare with 
 the automatically calculated area. The function generates a confusion matrix 
 comparing pixel values of the baseline and the calculated values. This 
 confusion matrix could be used to calculate two classification 
-evaluation metrcs as True Skill Statistic (TSS) or Intersection over Union 
+evaluation metrics as True Skill Statistic (TSS) or Intersection over Union 
 (IoU).
 }
 \examples{
@@ -139,13 +125,12 @@ wd.path ="./my_wd",
 pic.format = "tif", 
 chart = chart_polys, 
 obs.areas = obs_areas_poly_list, 
-pdf = F, 
 calculate.thresh = F,
 descrip = F, 
 manual.mask.test = F, 
 index. = c("SR"), 
 threshold.method = c("Li"), 
-threshold.vector = c(0.6),
+threshold.vector = NULL,
 descriptors. = c("mean") )
 
 }
