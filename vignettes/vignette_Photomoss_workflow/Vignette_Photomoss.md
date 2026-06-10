@@ -94,14 +94,12 @@ Our working directory have to include the following folders and files:
 
 We create the chart object (a list of polygons) with the
 *chart2* function. To do this we click over the color cells
-chart in the image. Important note: folow the order as indicated in the
-figure.
+chart in the image. Important note: follow the order as indicated in figure 1.
 
     chart <- chart2(wd.path) 
 
-![image](chart.png){width="5.83333in" height="3.28125in"}
-
-Figure 1
+![](chart.png)
+*Figure 1. Color chart and sequence order used to select the color cell position.*
 
 
 ### *roi2polygon.2* and *extractPIX.from.Poly*.
