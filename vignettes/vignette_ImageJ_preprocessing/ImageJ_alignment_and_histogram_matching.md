@@ -14,10 +14,11 @@ Allow NIR-VIS pictures perfectly match for spectral index calculation.
 
 **Note**: NIR and VIS paired images must be in the same order in its respective directories.
 
----
-### Histogram homogenization:
 
-Homogenization reduces exposure differences between images. We select one image from each NIR/VIS series to use it as histogram reference to match the rest of histograms within picture series. 
-* [**Histomatch_Process_Folder.ijm**](./Histomatch_Process_Folder_v1.ijm)
-* [**Histomatch_Process_Folder diagram**](./Histomatch_Process_Folder_v1_diagram.drawio.png)
+---
+### Create Region Of Interest (ROI) files:
+
+Using ImageJ *Analyze* -> *Tools* -> *ROI Manager* 
+
+
 
