@@ -30,7 +30,7 @@ Figure 2 shows how to open ROI Manager in ImageJ
 
 Figure 3 shows how to select the ROI area creating a polygon. 
 
-**Note**: It is important to save the ROIS in the same order you will analyze the images of each image.
+**Note**: It is important to save the ROIs in the same order you will analyze the images of each image.
 
 ![](./FIJI_ROI_manager1.png)
 
