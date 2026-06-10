@@ -23,5 +23,21 @@ Homogenization reduces exposure differences between images. We select one image 
 ---
 ### Create Region Of Interest (ROI) files:
 
-Using ImageJ *Analyze* -> *Tools* -> *ROI Manager* 
+Use ImageJ Roi Manager to create ROI files.
+
+Figure 2 shows how to open ROI Manager in ImageJ
+(*Analyze* -> *Tools* -> *ROI Manager*) 
+
+Figure 3 shows how to select the ROI area creating a polygon. 
+
+**Note**: It is important to save the ROIS in the same order you will analyze the images of each image.
+
+![](./FIJI_ROI_manager1.png)
+
+*Figure 2. how to open ROI Manager in ImageJ*
+
+
+![](./FIJI_ROI_manager2.png)
+
+*Figure 3. How to select the ROI area creating a polygon. Click in 'Add' or 't' as keyboard shortcut to record the ROI.*
 
