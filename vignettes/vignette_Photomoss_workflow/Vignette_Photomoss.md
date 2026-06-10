@@ -81,7 +81,7 @@ Our working directory have to include the following folders and files:
 
 
     wd #your working directory
-    setwd (wd)
+    setwd(wd)
     wd.path <- getwd()
 
 
