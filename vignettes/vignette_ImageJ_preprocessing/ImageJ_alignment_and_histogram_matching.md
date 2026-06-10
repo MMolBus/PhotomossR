@@ -9,8 +9,8 @@ We use ImageJ because it is open-source, very accessible and familiar in biologi
 ### Alignment:
 
 Allow NIR-VIS pictures perfectly match for spectral index calculation. 
-* [**Alignment_Process_Folder_v1.ijm**](./vignettes/vignette_ImageJ_preprocessing/Alignment_Process_Folder_v1.ijm).
-* [**Alignment_Process_Folder diagram**](./vignettes/vignette_ImageJ_preprocessing/Alignment_Process_macro_diagram.drawio.png).
+* [**Alignment_Process_Folder_v1.ijm**](./Alignment_Process_Folder_v1.ijm).
+* [**Alignment_Process_Folder diagram**](./Alignment_Process_macro_diagram.drawio.png).
 
 **Note**: NIR and VIS paired images must be in the same order in its respective directories.
 
