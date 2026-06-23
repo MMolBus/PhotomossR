@@ -1,0 +1,22 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="rXEJrBl_jefakakv9RdM">
+    <mxGraphModel dx="1414" dy="751" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="q1fayxChXQc-WhuVOvP_-4" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.database;whiteSpace=wrap;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;NIR&lt;/div&gt;&lt;div&gt;directory&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="60" x="190" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="q1fayxChXQc-WhuVOvP_-5" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.database;whiteSpace=wrap;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;VIS&lt;div&gt;directory&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="60" x="190" y="121" as="geometry" />
+        </mxCell>
+        <mxCell id="q1fayxChXQc-WhuVOvP_-6" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.database;whiteSpace=wrap;" value="&lt;div&gt;ROI&amp;nbsp;&lt;/div&gt;&lt;div&gt;directory&lt;/div&gt;" vertex="1">
+          <mxGeometry height="75" width="60" x="190" y="238.5" as="geometry" />
+        </mxCell>
+        <mxCell id="q1fayxChXQc-WhuVOvP_-7" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.database;whiteSpace=wrap;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;Aligned&lt;div&gt;VIS&lt;div&gt;directory&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="75" width="60" x="190" y="326" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
