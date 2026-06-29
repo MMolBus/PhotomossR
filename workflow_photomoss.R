@@ -8,8 +8,10 @@ if(require(librarian)!=T){
 # librarian::shelf(devtools, MMolBus/photomoss, MMolBus/MButils)
 librarian::shelf(devtools, MMolBus/MButils)
 
+install.packages("Rcpp", type = "binary")  # fuerza el binario, evita compilar
+install.packages(c("rlang", "glue", "cli", "vctrs", "magrittr"))
 
-devtools::install_github("MMolBus/PhotomossR@dev")
+devtools::install_github("MMolBus/PhotomossR", ref = "dev")
 repo <- getpath()
 devtools::install(repo)  
 
@@ -32,7 +34,6 @@ devtools::install(repo)
   tif.path <- getwd()
   
   chart2(paste0(tif.path,"/vis"), pic.format = "tif")
-  
 chart <- readRDS(list.files(pattern = "chart"))  
 
 
